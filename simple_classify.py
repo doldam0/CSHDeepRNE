@@ -47,12 +47,15 @@ while True:
 	if classified:
 		break
 
+# 학습한 가중치화 바이어스 값 출력
 print(w, b)
 
+# 분류 그래프 설정
 x_1 = np.arange(-4, 8, 0.01)
 x_2 = (-w[0] * x_1 - b) / w[1]
 plt.plot(x_1, x_2, color='k')
 
+# 그래프 그리기
 plt.grid()
 plt.xlabel('x₁')
 plt.ylabel('x₂')
