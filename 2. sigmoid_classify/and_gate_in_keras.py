@@ -20,7 +20,7 @@ model.compile(optimizer=SGD(lr=0.1), loss='binary_crossentropy')
 '''
 3. 모델 학습
 '''
-model.fit(x=X, y=Y, batch_size=1, epochs=200)
+model.fit(X, Y, batch_size=1, epochs=200)
 
 '''
 4. 학습 결과 확인
