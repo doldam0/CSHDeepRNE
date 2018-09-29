@@ -4,7 +4,7 @@ import pickle
 '''
 데이터 읽어들여 피클로 저장하기
 '''
-def import_data():
+def update_data():
 	result = []
 	with open('.RNE/data.csv', 'r') as f:	# CSV 파일 열기
 		while True:
@@ -42,4 +42,4 @@ def get_all_data():
 
 
 if __name__ == "__main__":
-	import_data()
+	update_data()
