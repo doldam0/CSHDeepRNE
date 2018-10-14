@@ -19,18 +19,18 @@ from keras.layers import Dense
 from keras.models import Sequential
 
 
-# Function
-
-
 def num_to_list(num):
     result = [0, 0, 0, 0, 0]
     result[num - 1] = 1
     return result
 
 
+food_dict = {}
+next_num = 0
 def formatting_data(_list):
     global food_dict
     global next_num
+    
     result = []
     for _i in _list:
         if len(_i) > 0 and '0' <= _i[0] <= '9':
@@ -46,9 +46,6 @@ def formatting_data(_list):
 # DataSet
 # 주식, 부식, 부식, 부식, 부식, 부식, 후식, 순서, 시간대, 잔반량
 
-food_dict = {}
-next_num = 0
-
 x_data = []
 y_data = []
 
@@ -63,7 +60,7 @@ if __name__ == "__main__":
             data = formatting_data(read_split)
 
             x_data.append(data[:9])
-            y_data.append(num_to_list(data[9]))
+            y_data.append(num_to_list(data[13]))
 
     print(x_data)
     print(y_data)

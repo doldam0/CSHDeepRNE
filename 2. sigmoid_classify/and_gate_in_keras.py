@@ -2,6 +2,7 @@ from keras.models import Sequential
 from keras.layers import Dense, Activation
 from keras.optimizers import SGD
 import numpy as np 
+import matplotlib.pyplot as plt
 
 '''
 1. 학습 데이터 생성
@@ -20,7 +21,7 @@ model.compile(optimizer=SGD(lr=0.1), loss='binary_crossentropy')
 '''
 3. 모델 학습
 '''
-model.fit(X, Y, batch_size=1, epochs=200)
+hist = model.fit(X, Y, batch_size=1, epochs=200)
 
 '''
 4. 학습 결과 확인
