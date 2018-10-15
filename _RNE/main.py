@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 #######################
 #    Park Geup Sick   #
 #######################
@@ -10,71 +9,15 @@
 #######################
 
 # Import package
-import random
-import codecs
-import numpy as np
-from keras.layers import Dense, Dropout
+from keras.layers import Dense
 from keras.models import Sequential
 from matplotlib import pyplot as plt
+from csv_to_list import get_data
 
-
-# Function
-def one_hot(num):
-    result = [0, 0, 0, 0, 0]
-    result[num - 1] = 1
-    return result
-
-
-def formatting_data(_list):
-    global food_dict
-    global next_num
-    result = []
-    for _i in _list:
-        if len(_i) > 0 and '0' <= _i[0] <= '9':
-            result.append(int(_i[0]))
-        else:
-            if _i not in food_dict:
-                food_dict[_i] = next_num
-                next_num += 1
-            result.append(food_dict[_i])
-    return result
-
-
-def load_csv(filepath):
-    result = []
-    with codecs.open(filepath, 'r', encoding='euc-kr', errors='ignore') as f:
-        while True:
-            read = f.readline()
-            if not read:
-                break
-            result.append(read.split(','))
-    return result
-
-
-# DataSet
-food_dict = {}
-next_num = 0
-x_data = []
-y_data = []
 
 if __name__ == "__main__":
-    dataset = load_csv('data_classify.csv')
-    print(dataset)
-
-    dataset = [formatting_data(list) for list in dataset]
-    random.shuffle(dataset)
-
-    x_data = np.array([item[:9] for item in dataset])
-    y_data = np.array([one_hot(item[9]) for item in dataset])
-    print(x_data)
-    print(y_data)
-
-    data_slice = int(len(y_data) * 0.8)
-
-    x_train = x_data[:data_slice]
-    y_train = y_data[:data_slice]
-    x_test = x_data[data_slice:]
-    y_test = y_data[data_slice:]
+    # Data
+    x_train, y_train, x_test, y_test = get_data('data_classify.csv', 0.8)
 
     # Design
     model = Sequential()

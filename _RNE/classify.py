@@ -1,11 +1,8 @@
-import pickle
+classify = [
+    ['밥', '라이스', '면', '국수'],
+    ['국', '찌개', '스프', '전골']
+]
 
-classify = [['밥', '라이스', '면', '국수'], ['국', '찌개', '스프', '전골']]
-
-def swap(a, b):
-    tmp = a
-    a = b
-    b = tmp
 
 if __name__ == "__main__":
     with open('data_rg.csv', 'r', encoding='euc-kr') as fin:

@@ -7,6 +7,5 @@ X, y = get_data('data_classify.csv', 1)
 
 model = XGBClassifier()
 model.fit(X, y)
-
 plot_importance(model)
 pyplot.show()

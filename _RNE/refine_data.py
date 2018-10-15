@@ -34,13 +34,4 @@ if __name__ == "__main__":
                 print('======== 괄호 수정 ========')
                 print(read)
 
-                '''
-                # 10개 데이터로 정렬
-                result = ""
-                for i in read.split(',')[:10]:
-                    result += i
-                    result += ','
-                result += '\n'
-                '''
-
                 fout.write(read)
