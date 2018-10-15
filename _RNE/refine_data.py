@@ -9,7 +9,9 @@ rep = [
     ['(찹쌀밥)', '찹쌀밥'],
     ['케익', '케이크'],
     ['케잌', '케이크'],
-    ['찌게', '찌개']
+    ['찌게', '찌개'],
+    ['추러스', '츄러스'],
+    ['티라미슈', '티라미수']
 ]
 
 if __name__ == "__main__":
@@ -28,10 +30,25 @@ if __name__ == "__main__":
                 read = read.replace(')', '(')
                 read_split = read.split('(')[::2]
 
+                '''
+                read_split = []
+                num_of_comma = 0
+                for i, item in enumerate(read):
+                    if i != len(read) - 1:
+                        if i % 2 == 0:
+                            read_split.append(item)
+                        else:
+                            if ',' in item:
+                                num_of_comma += 1
+                    else:
+                        for j in range(num_of_comma):
+                            read_split.append(',')
+                            read_split.append(item)
+                '''
+
                 read = ""
                 for i in read_split:
                     read += i
-                print('======== 괄호 수정 ========')
-                print(read)
 
                 fout.write(read)
+
