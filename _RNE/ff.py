@@ -15,7 +15,7 @@ from matplotlib import pyplot as plt
 from csv_to_list import get_data
 
 
-if __name__ == "__main__":
+def run():
     # Data
     x_train, y_train, x_test, y_test = get_data('data_classify.csv', 0.8)
 
@@ -58,6 +58,10 @@ if __name__ == "__main__":
     plt.plot(hist.history['loss'])
     plt.show()
 
-    plt.title('Accurancy')
+    plt.title('Accuracy')
     plt.plot(hist.history['acc'], c='y')
     plt.show()
+
+
+if __name__ == "__main__":
+    run()
