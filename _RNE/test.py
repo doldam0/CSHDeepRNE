@@ -1,5 +1,5 @@
 from keras.models import load_model
-from ff import formatting_data
+from csv_to_list import formatting_data
 import numpy as np
 import matplotlib.pyplot as plt
 
